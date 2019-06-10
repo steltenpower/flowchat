@@ -1,2 +1,2 @@
 # MultiTouchGoLangDesign
-Draw processes and channels, with UI like sketch-a-LOD, and GoLang code generation
+Draw processes and channels, with UI like Train-of-Thought, and GoLang code generation
