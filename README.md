@@ -9,3 +9,5 @@ There can also be a tree-view where processes are 'folders' with other processes
 In the code view (and of course the 3 types of views are synchronized) channels are passed to the processes by parameter.
 
 The world is parallel, let's model it like that (from the get-go)
+
+Some much older writing on the subject: (http://communiputing.org/)
