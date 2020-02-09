@@ -11,3 +11,5 @@ In the code view (and of course the 3 types of views are synchronized) channels 
 The world is parallel, let's model it like that (from the get-go)
 
 Some much older writing on the subject: (http://communiputing.org/)
+
+Maybe something useful via http://www.opencircuits.com/Software_tool#PCB_Layout https://resources.jointjs.com/demos/routing https://neyric.github.io/wireit/docs/index.html#examples
