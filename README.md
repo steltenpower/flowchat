@@ -15,3 +15,4 @@ Some much older writing on the subject: (http://communiputing.org/)
 Maybe something useful via http://www.opencircuits.com/Software_tool#PCB_Layout
 https://resources.jointjs.com/demos/routing
 https://neyric.github.io/wireit/docs/index.html#examples
+https://marianogappa.github.io/software/2020/04/01/webassembly-tinygo-cheesse/
