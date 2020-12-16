@@ -1,4 +1,4 @@
-# MultiTouchGoLangDesign
+# MultiTouchFlowBasedProgramming
 Draw processes and channels (like chips and wires), with 3 finger moves combined with speaking 'process A, datachannel D, process B'.
 (This is similar to the interaction explained in [Train-of-Thought](https://github.com/steltenpower/Train-Of-Thought).
 
