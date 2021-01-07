@@ -1,8 +1,8 @@
 # MultiTouchFlowBasedProgramming
-Draw processes and channels (like chips and wires), with 3 finger moves combined with speaking 'process A, datachannel D, process B'.
+Draw processes and channels (like chips and wires), with 2-finger moves combined with speaking 'A sends X to B'
 (This is similar to the interaction explained in [Train-of-Thought](https://github.com/steltenpower/Train-Of-Thought).
 
-Then generate GoLang code (which can indirectly be run in a webbrowser through WASM for a no-install implementation).
+Then possibly generate GoLang code (which can indirectly be run in a webbrowser through WASM for a no-install implementation).
 
 Also look into [drawFBP](https://github.com/jpaulm/drawfbp)
 
