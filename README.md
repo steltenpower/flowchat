@@ -1,4 +1,5 @@
 # MultiTouchFlowBasedProgramming
+![](https://repository-images.githubusercontent.com/150806953/3b199200-bc4c-11eb-91a4-f3674a3e1509)
 Draw processes and channels (like chips and wires), with 2-finger moves combined with speaking 'A sends X to B'
 (This is similar to the interaction explained in [Train-of-Thought](https://github.com/steltenpower/Train-Of-Thought).
 
