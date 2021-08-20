@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><title>faking interaction</title>
+<script>
+svgNS="http://www.w3.org/2000/svg";
+function drawNode(ev,elmId){
+	var newNode = document.createElementNS(svgNS,"circle")
+		.setAttribute("id",elmId)
+		.setAttributeNS(svgNS,"fill","grey")
+		.setAttributeNS(svgNS,"r",10)
+		.setAttributeNS(svgNS,"cx",ev.x).setAttributeNS(svgNS,"cy",ev.y);
+	document.appendChild(newNode);
+}
+function startRecording(elmId){
+	// TODO future start audio recording on audiofragment elmId
+	document.getElementById(elmId)
+		.setAttribute("fill","red");
+}
+function stopRecording(elmId){
+	// TODO future stop audio recording on audiofragment elmId
+	document.getElementById(elmId)
+		.setAttribute("fill","black");
+}
+function drawEdge(ev){
+	var newNode = document.createElementNS("http://www.w3.org/2000/svg","line")
+		.setAttribute("fill","grey")
+		.setAttribute("id","R")
+		.setAttribute("x1",ev.x).setAttribute("y1",ev.y)
+		.setAttribute("x2",ev.x).setAttribute("y2",ev.y);
+	document.appendChild(newNode);
+}
+function startshowingResults(elmId){
+	// add a 'dropdown' that keeps growing for a while
+}
+// ...
+function startNodeA(touchEv){
+	drawNode(touchEv,"A");
+	startRecording("A");
+}
+function completeNodeA_startRelation(ev){
+	stopRecording("A");
+	startshowingResults("A");
+	startRecording("R");
+	drawNode(ev,"B");
+	drawEdge(ev);
+}
+function completeRel_startNodeB(ev){
+	stopRecording("R");
+	startshowingResults("R");
+	startRecording("B");
+}
+function completeNodeB(){
+	stopRecording("B");
+	startshowingResults("B");
+	//addTripleToGraph()
+}
+// NO touchmove, touchcancel
+function process_touchstart(ev){
+	if (ev.touches.length ==1) startNodeA(ev);
+	else completeNodeA_startRelation(ev);
+}
+function process_touchend(ev){
+	if (ev.touches.length==1) completeRel_startNodeB(ev);
+	else completeNodeB(ev);
+}
+document.addEventListener('touchstart', process_touchstart, false);
+document.addEventListener('touchend', process_touchend, false);
+</script>
+</head><body><svg></svg></body></html>
