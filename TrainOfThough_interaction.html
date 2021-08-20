@@ -4,11 +4,14 @@
 svgNS="http://www.w3.org/2000/svg";
 function drawNode(ev,elmId){
 	var newNode = document.createElementNS(svgNS,"circle");
+	var l=ev.length;
+	var x=ev[l].pageX;
+	var y=ev[l].pageY;
 	newNode.setAttribute("id",elmId);
 	newNode.setAttribute("fill","grey");
 	newNode.setAttribute("r",10);
-	newNode.setAttribute("cx",ev.x);
-	newNode.setAttribute("cy",ev.y);
+	newNode.setAttribute("cx",x);
+	newNode.setAttribute("cy",y);
 	document.appendChild(newNode);
 }
 function startRecording(elmId){
