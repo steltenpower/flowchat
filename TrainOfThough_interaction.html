@@ -3,6 +3,7 @@
 <script>
 svgNS="http://www.w3.org/2000/svg";
 function drawNode(ev,elmId){
+	var svg=document.getElementsByTagName("svg")[0];
 	var newNode = document.createElementNS(svgNS,"circle");
 	var e=ev.changedTouches[0];
 	var x=e.pageX;
@@ -12,7 +13,7 @@ function drawNode(ev,elmId){
 	newNode.setAttribute("r",10);
 	newNode.setAttribute("cx",x);
 	newNode.setAttribute("cy",y);
-	document.appendChild(newNode);
+	svg.appendChild(newNode);
 }
 function startRecording(elmId){
 	// TODO future start audio recording on audiofragment elmId
