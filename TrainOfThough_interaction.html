@@ -3,11 +3,12 @@
 <script>
 svgNS="http://www.w3.org/2000/svg";
 function drawNode(ev,elmId){
-	var newNode = document.createElementNS(svgNS,"circle")
-		.setAttributeNS(null,"id",elmId)
-		.setAttributeNS(svgNS,"fill","grey")
-		.setAttributeNS(svgNS,"r",10)
-		.setAttributeNS(svgNS,"cx",ev.x).setAttributeNS(svgNS,"cy",ev.y);
+	var newNode = document.createElementNS(svgNS,"circle");
+	newNode.setAttribute("id",elmId);
+	newNode.setAttribute("fill","grey");
+	newNode.setAttribute("r",10);
+	newNode.setAttribute("cx",ev.x);
+	newNode.setAttribute("cy",ev.y);
 	document.appendChild(newNode);
 }
 function startRecording(elmId){
