@@ -4,7 +4,7 @@
 svgNS="http://www.w3.org/2000/svg";
 function drawNode(ev,elmId){
 	var newNode = document.createElementNS(svgNS,"circle")
-		.setAttribute("id",elmId)
+		.setAttributeNS(null,"id",elmId)
 		.setAttributeNS(svgNS,"fill","grey")
 		.setAttributeNS(svgNS,"r",10)
 		.setAttributeNS(svgNS,"cx",ev.x).setAttributeNS(svgNS,"cy",ev.y);
