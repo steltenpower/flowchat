@@ -6,7 +6,7 @@ svg=document.getElementsByTagName("svg")[0];
 function drawNode(ev,elmId){
 	var newNode = document.createElementNS(svgNS,"circle");
 	var l=ev.touches.length;
-	var e=ev.touches[l];
+	var e=ev.touches[l-1];
 	var x=e.pageX;
 	var y=e.pageY;
 	newNode.setAttribute("id",elmId);
