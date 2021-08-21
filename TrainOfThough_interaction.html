@@ -29,8 +29,8 @@ function drawEdge(ev){
 	var newNode = document.createElementNS("http://www.w3.org/2000/svg","line")
 		.setAttribute("fill","grey")
 		.setAttribute("id","R")
-		.setAttribute("x1",ev.x).setAttribute("y1",ev.y)
-		.setAttribute("x2",ev.x).setAttribute("y2",ev.y);
+		.setAttribute("x1",ev.touches[0].pageX).setAttribute("y1",ev.touches[0].pageY)
+		.setAttribute("x2",ev.touches[1].pageX).setAttribute("y2",ev.touches[1].pageY);
 	document.appendChild(newNode);
 }
 function startshowingResults(elmId){
