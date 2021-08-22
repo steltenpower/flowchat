@@ -23,8 +23,8 @@ function startRecording(elmId){
 }
 function stopRecording(elmId){
 	// TODO future stop audio recording on audiofragment elmId
-	document.getElementById(elmId)
-		.setAttribute("fill","black");
+	var temp=document.getElementById(elmId);
+	temp.setAttribute("fill","black");
 }
 function drawEdge(ev){
 	var newNode = document.createElementNS("http://www.w3.org/2000/svg","line")
