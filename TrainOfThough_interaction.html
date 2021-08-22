@@ -9,11 +9,11 @@ function drawNode(ev,elmId){
 	var e=ev.changedTouches[l-1];
 	var x=e.pageX;
 	var y=e.pageY;
-	newNode.setAttribute("id",elmId)
-	.setAttribute("fill","grey")
-	.setAttribute("r",100)
-	.setAttribute("cx",x)
-	.setAttribute("cy",y);
+	newNode.setAttribute("id",elmId);
+	newNode.setAttribute("fill","grey");
+	newNode.setAttribute("r",100);
+	newNode.setAttribute("cx",x);
+	newNode.setAttribute("cy",y);
 	svg.appendChild(newNode);
 }
 function startRecording(elmId){
