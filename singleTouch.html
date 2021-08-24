@@ -16,6 +16,14 @@ function drawNode(ev,elmId){
 	var svg=document.getElementsByTagName("svg")[0];
 	svg.appendChild(newNode);
 }
+function drawEdge(ev){
+	var newNode = document.createElementNS("http://www.w3.org/2000/svg","line")
+		.setAttribute("fill","grey")
+		.setAttribute("id","R")
+		.setAttribute("x1",ev.touches[0].pageX).setAttribute("y1",ev.touches[0].pageY)
+		.setAttribute("x2",ev.touches[1].pageX).setAttribute("y2",ev.touches[1].pageY);
+	document.appendChild(newNode);
+}
 function startRecording(elmId){
 	// TODO future start audio recording on audiofragment elmId
 	document.getElementById(elmId)
@@ -26,30 +34,22 @@ function stopRecording(elmId){
 	var temp=document.getElementById(elmId);
 	temp.setAttribute("fill","black");
 }
-function drawEdge(ev){
-	var newNode = document.createElementNS("http://www.w3.org/2000/svg","line")
-		.setAttribute("fill","grey")
-		.setAttribute("id","R")
-		.setAttribute("x1",ev.touches[0].pageX).setAttribute("y1",ev.touches[0].pageY)
-		.setAttribute("x2",ev.touches[1].pageX).setAttribute("y2",ev.touches[1].pageY);
-	document.appendChild(newNode);
-}
 function startshowingResults(elmId){
 	// add a 'dropdown' that keeps growing for a while
 }
 // ...
-function startNodeA(touchEv){
-	drawNode(touchEv,"A");
+function startNodeA(ev){
+	drawNode(ev,"A");
 	startRecording("A");
 }
-function completeNodeA_startRelation(ev){
+function completeNodeA_startEdge(ev){
 	stopRecording("A");
 	startshowingResults("A");
 	startRecording("R");
 	drawNode(ev,"B");
 	drawEdge(ev);
 }
-function completeRel_startNodeB(ev){
+function completeEdge_startNodeB(ev){
 	stopRecording("R");
 	startshowingResults("R");
 	startRecording("B");
@@ -59,17 +59,10 @@ function completeNodeB(){
 	startshowingResults("B");
 	//addTripleToGraph()
 }
-// NO touchmove, touchcancel
-function process_touchstart(ev){
-	if (ev.touches.length ==1) startNodeA(ev);
-	else completeNodeA_startRelation(ev);
-}
-function process_touchend(ev){
-	if (ev.touches.length==1) completeRel_startNodeB(ev);
-	else completeNodeB(ev);
-}
-document.addEventListener('touchstart', process_touchstart, false);
-document.addEventListener('touchend', process_touchend, false);
+document.addEventListener('touchstart', startNodeA, false);
+document.addEventListener('touchmove', completeNodeA_startEdge, false);
+document.addEventListener('touchend', completeEdge_startNodeB, false);
+document.addEventListener('keydown', completeNodeB, false);
 </script>
 </head>
 <body style="width:100%;height:100%;margin:0;"><svg width="100%" height="100%"></svg></body></html>
