@@ -59,9 +59,9 @@ function completeNodeB(){
 	startshowingResults("B");
 	//addTripleToGraph()
 }
-document.addEventListener('touchstart', startNodeA, false);
-document.addEventListener('touchmove', completeNodeA_startEdge, false);
-document.addEventListener('touchend', completeEdge_startNodeB, false);
+document.addEventListener('mousedown', startNodeA, false);
+document.addEventListener('mousemove', completeNodeA_startEdge, false);
+document.addEventListener('mouseup', completeEdge_startNodeB, false);
 document.addEventListener('keydown', completeNodeB, false);
 </script>
 </head>
