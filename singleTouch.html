@@ -39,17 +39,21 @@ function startshowingResults(elmId){
 }
 // ...
 function startNodeA(ev){
+	drawing=true;
 	drawNode(ev,"A");
 	startRecording("A");
 }
 function completeNodeA_startEdge(ev){
-	stopRecording("A");
-	startshowingResults("A");
-	startRecording("R");
-	drawNode(ev,"B");
-	drawEdge(ev);
+	if (drawing){
+		stopRecording("A");
+		startshowingResults("A");
+		startRecording("R");
+		drawNode(ev,"B");
+		drawEdge(ev);
+	}
 }
 function completeEdge_startNodeB(ev){
+	drawing=false;
 	stopRecording("R");
 	startshowingResults("R");
 	startRecording("B");
