@@ -50,9 +50,9 @@ function completeNodeA_startEdge(ev){
 	if (drawing){
 		stopRecording("A");
 		startshowingResults("A");
+		drawEdge(ev);
 		startRecording("R");
 		drawNode(ev,"B");
-		drawEdge(ev);
 	}
 }
 function completeEdge_startNodeB(ev){
