@@ -23,8 +23,10 @@ function drawEdge(ev){
 	var newNode = document.createElementNS(svgNS,"line");
 		newNode.setAttribute("fill","grey");
 		newNode.setAttribute("id","R");
-		newNode.setAttribute("x1",A_x).setAttribute("y1",A_y);
-		newNode.setAttribute("x2",B_x).setAttribute("y2",B_y);
+		newNode.setAttribute("x1",A_x);
+		newNode.setAttribute("y1",A_y);
+		newNode.setAttribute("x2",B_x);
+		newNode.setAttribute("y2",B_y);
 	document.appendChild(newNode);
 }
 function startRecording(elmId){
