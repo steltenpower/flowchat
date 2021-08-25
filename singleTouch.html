@@ -14,6 +14,7 @@ function stretchTriple_listenForR(ev){
 	if (!stretching){
 		stopRecording("A")
 		startRecording("R")
+		stretching=true;
 	}else{
 		document.getElementById("R")
 			.setAttribute("x2",ev.x)
@@ -42,7 +43,7 @@ function stopRecording(elmId){
 	startShowingResults(elmId);
 }
 function startShowingResults(elmId){
-	// add a 'dropdown' that keeps growing for a while
+	console.log("showing results for finished recording of "+elmId);
 }
 // ...
 document.addEventListener('mousedown', drawTriple_listenForA, false);
