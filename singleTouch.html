@@ -14,6 +14,7 @@ function drawNode(ev,elmId){
 	newNode.setAttribute("r",100);
 	newNode.setAttribute("cx",A_x);
 	newNode.setAttribute("cy",A_y);
+	var svg=document.getElementsByTagName("svg")[0];
 	svg.appendChild(newNode);
 }
 function drawEdge(ev){
