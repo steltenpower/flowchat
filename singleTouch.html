@@ -67,15 +67,15 @@ function startShowingResults(elmId){
 	console.log("showing results for finished recording of "+elmId);
 	if (elmId=="A"){
 		// add I/love/graphs on specific location
-		document.removeEventListener('pointerdown');
+		document.removeEventListener('pointerdown',drawTriple_listenForA, false);
 	}
 	if (elmId=="R"){
 		// add I/love/graphs on specific location
-		document.removeEventListener('pointermove');
+		document.removeEventListener('pointermove',stretchTriple_listenrForR,false);
 	}
 	if (elmId=="B"){
 		// add I/love/graphs on specific location
-		document.removeEventListener('pointerup');
+		document.removeEventListener('pointerup',completeB,false);
 	}
 }
 // ...
