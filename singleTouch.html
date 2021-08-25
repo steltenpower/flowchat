@@ -14,7 +14,6 @@ function drawNode(ev,elmId){
 	newNode.setAttribute("r",100);
 	newNode.setAttribute("cx",A_x);
 	newNode.setAttribute("cy",A_y);
-	var svg=document.getElementsByTagName("svg")[0];
 	svg.appendChild(newNode);
 }
 function drawEdge(ev){
@@ -27,7 +26,8 @@ function drawEdge(ev){
 		newNode.setAttribute("y1",A_y);
 		newNode.setAttribute("x2",B_x);
 		newNode.setAttribute("y2",B_y);
-	document.appendChild(newNode);
+	var svg=document.getElementsByTagName("svg")[0];
+	svg.appendChild(newNode);
 }
 function startRecording(elmId){
 	// TODO future start audio recording on audiofragment elmId
