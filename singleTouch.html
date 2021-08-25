@@ -38,11 +38,13 @@ function completeB(ev){
 // ...	
 function startRecording(elmId){
 	// TODO future start audio recording on audiofragment elmId
+	console.log("recording of "+elmId+" started");
 	document.getElementById(elmId)
 		.setAttribute("stroke","red");
 }
 function stopRecording(elmId){
 	// TODO future stop audio recording on audiofragment elmId
+	console.log("recording of "+elmId+" ended");
 	document.getElementById(elmId).setAttribute("stroke","black");
 	startShowingResults(elmId);
 }
