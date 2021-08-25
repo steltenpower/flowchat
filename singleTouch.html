@@ -2,34 +2,34 @@
 <html lang="en" style="width:100%;height:100%;"><head><title>faking interaction</title>
 <script>
 svgNS="http://www.w3.org/2000/svg";
-drawing=false;
-A_x=undefined;
-A_y=undefined;
-function drawNode(ev,elmId){
-	A_x=ev.clientX;
-	A_y=ev.clientY;
-	var newNode = document.createElementNS(svgNS,"circle");
-	newNode.setAttribute("id",elmId);
-	newNode.setAttribute("fill","grey");
-	newNode.setAttribute("r",100);
-	newNode.setAttribute("cx",A_x);
-	newNode.setAttribute("cy",A_y);
-	var svg=document.getElementsByTagName("svg")[0];
-	svg.appendChild(newNode);
+stretching=false;
+function drawTriple_listenForA(ev){
+	var translate="translate('"+ev.x+"','"+ev.y+"')";
+	document.getElementById("triple")
+		.setAttribute("transform",translate)
+		.setAttribute("visibility","visible");
+	startRecording("A");
 }
-function drawEdge(ev){
-	B_x=ev.clientX;
-	B_y=ev.clientY;
-	var newNode = document.createElementNS(svgNS,"line");
-		newNode.setAttribute("fill","grey");
-		newNode.setAttribute("id","R");
-		newNode.setAttribute("x1",A_x);
-		newNode.setAttribute("y1",A_y);
-		newNode.setAttribute("x2",B_x);
-		newNode.setAttribute("y2",B_y);
-	var svg=document.getElementsByTagName("svg")[0];
-	svg.appendChild(newNode);
+function stretchTriple_listenForR(ev){
+	if (!stretching){
+		stopRecording("A")
+		startRecording("R")
+	}
+	document.getElementById("R")
+		.setAttribute("x2",ev.x)
+		.setAttribute("y2",ev.y);
+	document.getElementById("B")
+		.setAttribute("cx",ev.x)
+		.setAttribute("cy",ev.y);
 }
+function listenForB(ev){
+	stopRecording("R");
+	startRecording("B");
+}
+function completeB(ev){
+	stopRecording("B");
+}
+// ...	
 function startRecording(elmId){
 	// TODO future start audio recording on audiofragment elmId
 	document.getElementById(elmId)
@@ -37,42 +37,21 @@ function startRecording(elmId){
 }
 function stopRecording(elmId){
 	// TODO future stop audio recording on audiofragment elmId
-	var temp=document.getElementById(elmId);
-	temp.setAttribute("fill","black");
+	document.getElementById(elmId).setAttribute("fill","black");
+	startShowingResults(elmId);
 }
-function startshowingResults(elmId){
+function startShowingResults(elmId){
 	// add a 'dropdown' that keeps growing for a while
 }
 // ...
-function startNodeA(ev){
-	drawing=true;
-	drawNode(ev,"A");
-	startRecording("A");
-}
-function completeNodeA_startEdge(ev){
-	if (drawing){
-		stopRecording("A");
-		startshowingResults("A");
-		drawEdge(ev);
-		startRecording("R");
-		drawNode(ev,"B");
-	}
-}
-function completeEdge_startNodeB(ev){
-	drawing=false;
-	stopRecording("R");
-	startshowingResults("R");
-	startRecording("B");
-}
-function completeNodeB(){
-	stopRecording("B");
-	startshowingResults("B");
-	//addTripleToGraph()
-}
-document.addEventListener('mousedown', startNodeA, false);
-document.addEventListener('mousemove', completeNodeA_startEdge, false);
-document.addEventListener('mouseup', completeEdge_startNodeB, false);
-document.addEventListener('keydown', completeNodeB, false);
+document.addEventListener('mousedown', drawTriple_listenForA, false);
+document.addEventListener('mousemove', stretchTriple_listenForR, false);
+document.addEventListener('mouseup', listenForB, false);
+document.addEventListener('keydown', completeB, false);
 </script>
 </head>
-<body style="width:100%;height:100%;margin:0;"><svg width="100%" height="100%"></svg></body></html>
+<body style="width:100%;height:100%;margin:0;"><svg width="100%" height="100%"><g id="triple" visibility="hidden">
+	<circle id="B" r="100" />
+	<line id="R" />
+	<circle id="A" r="100" />
+</g></svg></body></html>
