@@ -91,9 +91,18 @@ document.addEventListener('pointermove', stretchTriple_listenForR, false);
 document.addEventListener('pointerup', listenForB, false);
 </script>
 </head>
-<body style="width:100%;height:100%;margin:0;"><svg width="100%" height="100%"><g id="triple" visibility="hidden" fill="grey" stroke="grey" stroke-width="10">
+<body style="width:100%;height:100%;margin:0;"><svg width="100%" height="100%">
+	<defs>
+    <marker id="triangle" viewBox="0 0 10 10"
+          refX="1" refY="5"
+          markerUnits="strokeWidth"
+          markerWidth="10" markerHeight="10"
+          orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f00"/>
+    </marker>
+  </defs><g id="triple" visibility="hidden" fill="grey" stroke="grey" stroke-width="10">
 	<circle id="B" r="100" />
-	<line id="R" /><!-- TODO marker-end -->
+	<line id="R" marker-end="url(#triangle)"/>
 	<circle id="A" r="100" /><g stroke-width="1" stroke="red" fill="red" font-size="200%">
 	<text id="textA" visibility="hidden" font-size="200%">i</text>
 	<text id="textR" visibility="hidden">❤️</text>
