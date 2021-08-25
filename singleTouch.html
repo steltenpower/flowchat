@@ -52,7 +52,9 @@ function startRecording(elmId){
 function stopRecording(elmId){
 	// TODO future stop audio recording on audiofragment elmId
 	console.log("recording of "+elmId+" ended");
-	document.getElementById(elmId).setAttribute("stroke","black");
+	elm=document.getElementById(elmId);
+	elm.setAttribute("stroke","black");
+	elm.setAttribute("fill","none");
 	startShowingResults(elmId);
 }
 function startShowingResults(elmId){
