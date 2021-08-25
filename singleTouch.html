@@ -4,8 +4,12 @@
 svgNS="http://www.w3.org/2000/svg";
 drawing=false;
 stretching=false;
+x1=0;
+y1=0;
 function drawTriple_listenForA(ev){
-	var translate="translate("+ev.x+","+ev.y+")";
+	x1=ev.x;
+	y1=ev.y;
+	var translate="translate("+x1+","+y1+")";
 	var triple=document.getElementById("triple");
 	triple.setAttribute("transform",translate);
 	triple.setAttribute("visibility","visible");
@@ -19,12 +23,14 @@ function stretchTriple_listenForR(ev){
 			startRecording("R")
 			stretching=true;
 		}else{
+			var x2=ev.x-x1;
+			var y2=ev.y-y1;
 			var R=document.getElementById("R");
-			R.setAttribute("x2",ev.x);
-			R.setAttribute("y2",ev.y);
+			R.setAttribute("x2",x2);
+			R.setAttribute("y2",y2);
 			var B=document.getElementById("B");
-			B.setAttribute("cx",ev.x);
-			B.setAttribute("cy",ev.y);
+			B.setAttribute("cx",x2);
+			B.setAttribute("cy",y2);
 		}
 	}
 }
