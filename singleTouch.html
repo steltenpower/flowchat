@@ -75,8 +75,8 @@ function startShowingResults(elmId){
 	if (elmId=="R"){
 		tempR=document.getElementById("textR")
 		tempR.setAttribute("visibility","visible");
-		tempR.setAttribute("x",(x1+x2)/2);
-		tempR.setAttribute("y",(y1+y2)/2);
+		tempR.setAttribute("x",x2/2);
+		tempR.setAttribute("y",y2/2);
 		document.removeEventListener('pointermove',stretchTriple_listenForR,false);
 	}
 	if (elmId=="B"){
