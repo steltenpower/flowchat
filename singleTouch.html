@@ -66,13 +66,16 @@ function stopRecording(elmId){
 function startShowingResults(elmId){
 	console.log("showing results for finished recording of "+elmId);
 	if (elmId=="A"){
-		// add I/love/graphs on specific location	
+		// add I/love/graphs on specific location
+		document.removeEventListener('pointerdown');
 	}
 	if (elmId=="R"){
-		// add I/love/graphs on specific location	
+		// add I/love/graphs on specific location
+		document.removeEventListener('pointermove');
 	}
 	if (elmId=="B"){
-		// add I/love/graphs on specific location	
+		// add I/love/graphs on specific location
+		document.removeEventListener('pointerup');
 	}
 }
 // ...
