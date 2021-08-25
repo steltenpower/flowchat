@@ -61,9 +61,9 @@ function startShowingResults(elmId){
 	console.log("showing results for finished recording of "+elmId);
 }
 // ...
-document.addEventListener('mousedown', drawTriple_listenForA, false);
-document.addEventListener('mousemove', stretchTriple_listenForR, false);
-document.addEventListener('mouseup', listenForB, false);
+document.addEventListener('pointerdown', drawTriple_listenForA, false);
+document.addEventListener('pointmove', stretchTriple_listenForR, false);
+document.addEventListener('pointerup', listenForB, false);
 document.addEventListener('keydown', completeB, false);
 </script>
 </head>
