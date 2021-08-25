@@ -10,7 +10,7 @@ stretching=false;
 x1=0;
 y1=0;
 alert("What if you could draw graphs (networks,flowcharts,etc.) with some quick swipes across the screen while just saying the names of elements?");
-alert("For now: You can fake it once for 1 node-edge-node by trying to draw a line while saying 'I love graphs' with timing based on the color RED. Go for it! (and finishing by hitting the Q key)");
+alert("For now: You can fake it once for 1 node-edge-node by trying to draw a line while saying 'I love graphs' with timing based on the color RED. Go for it! (and finish by hitting the Q key)");
 function drawTriple_listenForA(ev){
 	x1=ev.x;
 	y1=ev.y;
@@ -65,6 +65,15 @@ function stopRecording(elmId){
 }
 function startShowingResults(elmId){
 	console.log("showing results for finished recording of "+elmId);
+	if (elmId=="A"){
+		// add I/love/graphs on specific location	
+	}
+	if (elmId=="R"){
+		// add I/love/graphs on specific location	
+	}
+	if (elmId=="B"){
+		// add I/love/graphs on specific location	
+	}
 }
 // ...
 document.addEventListener('pointerdown', drawTriple_listenForA, false);
