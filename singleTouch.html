@@ -70,8 +70,6 @@ function startShowingResults(elmId){
 	if (elmId=="A"){
 		tempA=document.getElementById("textA")
 		tempA.setAttribute("visibility","visible");
-		tempA.setAttribute("x",x1);
-		tempA.setAttribute("y",y1);
 		document.removeEventListener('pointerdown',drawTriple_listenForA, false);
 	}
 	if (elmId=="R"){
