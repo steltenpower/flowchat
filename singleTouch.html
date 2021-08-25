@@ -14,13 +14,14 @@ function stretchTriple_listenForR(ev){
 	if (!stretching){
 		stopRecording("A")
 		startRecording("R")
+	}else{
+		document.getElementById("R")
+			.setAttribute("x2",ev.x)
+			.setAttribute("y2",ev.y);
+		document.getElementById("B")
+			.setAttribute("cx",ev.x)
+			.setAttribute("cy",ev.y);
 	}
-	document.getElementById("R")
-		.setAttribute("x2",ev.x)
-		.setAttribute("y2",ev.y);
-	document.getElementById("B")
-		.setAttribute("cx",ev.x)
-		.setAttribute("cy",ev.y);
 }
 function listenForB(ev){
 	stopRecording("R");
