@@ -16,12 +16,12 @@ function stretchTriple_listenForR(ev){
 		startRecording("R")
 		stretching=true;
 	}else{
-		document.getElementById("R")
-			.setAttribute("x2",ev.x)
-			.setAttribute("y2",ev.y);
-		document.getElementById("B")
-			.setAttribute("cx",ev.x)
-			.setAttribute("cy",ev.y);
+		var R=document.getElementById("R");
+		R.setAttribute("x2",ev.x);
+		R.setAttribute("y2",ev.y);
+		var B=document.getElementById("B");
+		B.setAttribute("cx",ev.x);
+		B.setAttribute("cy",ev.y);
 	}
 }
 function listenForB(ev){
