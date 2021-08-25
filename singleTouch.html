@@ -48,7 +48,7 @@ function listenForB(ev){
 }
 function completeB(ev){
 	stopRecording("B");
-	drawing=false;
+	document.removeEventListener('keydown', completeB, false);
 }
 // ...	
 function startRecording(elmId){
