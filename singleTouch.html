@@ -2,26 +2,30 @@
 <html lang="en" style="width:100%;height:100%;"><head><title>faking interaction</title>
 <script>
 svgNS="http://www.w3.org/2000/svg";
+drawing=false;
 stretching=false;
 function drawTriple_listenForA(ev){
 	var translate="translate("+ev.x+","+ev.y+")";
 	var triple=document.getElementById("triple");
 	triple.setAttribute("transform",translate);
 	triple.setAttribute("visibility","visible");
+	drawing=true;
 	startRecording("A");
 }
 function stretchTriple_listenForR(ev){
-	if (!stretching){
-		stopRecording("A")
-		startRecording("R")
-		stretching=true;
-	}else{
-		var R=document.getElementById("R");
-		R.setAttribute("x2",ev.x);
-		R.setAttribute("y2",ev.y);
-		var B=document.getElementById("B");
-		B.setAttribute("cx",ev.x);
-		B.setAttribute("cy",ev.y);
+	if (drawing){
+		if (!stretching){
+			stopRecording("A")
+			startRecording("R")
+			stretching=true;
+		}else{
+			var R=document.getElementById("R");
+			R.setAttribute("x2",ev.x);
+			R.setAttribute("y2",ev.y);
+			var B=document.getElementById("B");
+			B.setAttribute("cx",ev.x);
+			B.setAttribute("cy",ev.y);
+		}
 	}
 }
 function listenForB(ev){
