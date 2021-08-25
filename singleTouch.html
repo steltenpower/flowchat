@@ -5,9 +5,9 @@ svgNS="http://www.w3.org/2000/svg";
 stretching=false;
 function drawTriple_listenForA(ev){
 	var translate="translate("+ev.x+","+ev.y+")";
-	document.getElementById("triple")
-		.setAttribute("transform",translate)
-		.setAttribute("visibility","visible");
+	var triple=document.getElementById("triple");
+	triple.setAttribute("transform",translate);
+	triple.setAttribute("visibility","visible");
 	startRecording("A");
 }
 function stretchTriple_listenForR(ev){
