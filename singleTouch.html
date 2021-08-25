@@ -9,6 +9,8 @@ drawing=false;
 stretching=false;
 x1=0;
 y1=0;
+x2=0;
+y2=0;
 alert("What if you could draw graphs (networks,flowcharts,etc.) with some quick swipes across the screen while just saying the names of elements?");
 alert("For now: You can fake it once for 1 node-edge-node by trying to draw a line while saying 'I love graphs' with timing based on the color RED. Go for it! (and finish by hitting the Q key)");
 function drawTriple_listenForA(ev){
@@ -28,8 +30,8 @@ function stretchTriple_listenForR(ev){
 			startRecording("R")
 			stretching=true;
 		}else{
-			var x2=ev.x-x1;
-			var y2=ev.y-y1;
+			x2=ev.x-x1;
+			y2=ev.y-y1;
 			var R=document.getElementById("R");
 			R.setAttribute("x2",x2);
 			R.setAttribute("y2",y2);
@@ -66,15 +68,24 @@ function stopRecording(elmId){
 function startShowingResults(elmId){
 	console.log("showing results for finished recording of "+elmId);
 	if (elmId=="A"){
-		// add I/love/graphs on specific location
+		tempA=document.getElementById("textA")
+		tempA.setAttribute("visibility","visible");
+		tempA.setAttribute("x",x1);
+		tempA.setAttribute("y",y1);
 		document.removeEventListener('pointerdown',drawTriple_listenForA, false);
 	}
 	if (elmId=="R"){
-		// add I/love/graphs on specific location
+		tempR=document.getElementById("textR")
+		tempR.setAttribute("visibility","visible");
+		tempR.setAttribute("x",(x1+x2)/2);
+		tempR.setAttribute("y",(y1+y2)/2;
 		document.removeEventListener('pointermove',stretchTriple_listenForR,false);
 	}
 	if (elmId=="B"){
-		// add I/love/graphs on specific location
+		tempB=document.getElementById("textA")
+		tempB.setAttribute("visibility","visible");
+		tempB.setAttribute("x",x2);
+		tempB.setAttribute("y",y2);
 		document.removeEventListener('pointerup',listenForB,false);
 	}
 }
@@ -89,4 +100,7 @@ document.addEventListener('keydown', completeB, false);
 	<circle id="B" r="100" />
 	<line id="R" /><!-- TODO marker-end -->
 	<circle id="A" r="100" />
+	<text id="textA" visibility="hidden">I</text>
+	<text id="textR" visibility="hidden">❤️</text>
+	<text id="textB" visibility="hidden">graphs</text>
 </g></svg></body></html>
