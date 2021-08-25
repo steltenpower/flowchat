@@ -71,11 +71,11 @@ function startShowingResults(elmId){
 	}
 	if (elmId=="R"){
 		// add I/love/graphs on specific location
-		document.removeEventListener('pointermove',stretchTriple_listenrForR,false);
+		document.removeEventListener('pointermove',stretchTriple_listenForR,false);
 	}
 	if (elmId=="B"){
 		// add I/love/graphs on specific location
-		document.removeEventListener('pointerup',completeB,false);
+		document.removeEventListener('pointerup',listenForB,false);
 	}
 }
 // ...
