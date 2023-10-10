@@ -5,7 +5,7 @@ Draw processes and channels (like chips and wires), with 2-finger moves combined
 
 Then possibly generate GoLang code (which can indirectly be run in a webbrowser through WASM for a no-install implementation).
 
-Also look into [drawFBP](https://github.com/jpaulm/drawfbp)
+Also look into [drawFBP](https://github.com/jpaulm/drawfbp), specifically https://github.com/jpaulm/drawfbp/blob/master/lib/drawfbp_file.xsd
 
 In this 'electronics-like' view every process can internally be a new level of abstraction/implementation
 There can also be a tree-view where processes are 'folders' with other processes in them, where the channels are also drawn as wires.
