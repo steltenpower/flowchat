@@ -22,3 +22,9 @@ https://neyric.github.io/wireit/docs/index.html#examples
 https://marianogappa.github.io/software/2020/04/01/webassembly-tinygo-cheesse/
 
 sidenote: met symbooltjes aangeven hoe onderzoeksdata tussen HPC, publiceren, archief, etc. beweegt
+
+https://github.com/adrianco/spigo
+
+https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
+
+https://github.com/concurrency/kroc
